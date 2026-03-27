@@ -283,7 +283,21 @@
     transform: translateY(-2px);
     display: inline-block;
 }
+/* =========================================
+   ANIMASI MOBILE MENU
+   ========================================= */
+/* Class yang ditambahkan via JavaScript saat menu terbuka */
+#mobile-menu.menu-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
 
+/* Efek tombol strip 3 saat diklik berubah jadi 'X' */
+#mobile-menu-btn.btn-active {
+    transform: rotate(90deg);
+    color: #ef4444; /* Berubah jadi merah (close) */
+}
         /* Bento Card Styles */
         .bento-card {
             background: rgba(255, 255, 255, 0.8);
@@ -336,19 +350,35 @@ footer {
             <img src="logo.jpeg" alt="Sapta Logo" class="h-10 md:h-14 w-auto rounded-xl shadow-lg">
             <p class="font-black text-sm md:text-2xl leading-none text-sapta-blue uppercase">Sapta Nusantara</p>
         </a>
-        
-        <div class="flex items-center gap-6 md:gap-12">
-            <div class="hidden lg:flex gap-10 font-black text-[13px] uppercase tracking-widest text-slate-500">
+        <div class="flex items-center gap-6 lg:gap-16">
+            <div class="hidden lg:flex gap-12 font-black text-[13px] uppercase tracking-widest text-slate-500">
                 <a href="index.html#home" class="nav-link-custom ">Beranda</a>
                 <a href="produk.html" class="nav-link-custom nav-active">Produk</a>
                 <a href="index.html#filosofi" class="nav-link-custom">Filosofi</a>
                 <a href="index.html#struktur" class="nav-link-custom">Struktur</a>
             </div>
-            <a href="index.html#contact" class="px-5 md:px-10 py-3 bg-sapta-blue text-white rounded-xl font-black text-[10px] md:text-[12px] uppercase tracking-widest shadow-lg">
-                Hubungi Kami
+            
+            <a href="#contact" class="hidden lg:inline-flex group relative items-center justify-center px-10 py-4 font-black text-[12px] uppercase tracking-widest text-white transition-all bg-sapta-blue rounded-2xl hover:bg-blue-800 shadow-xl overflow-hidden">
+                <span class="relative z-10 flex items-center gap-2">Hubungi Kami <i class="fas fa-arrow-right animate-pulse"></i></span>
+                <div class="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             </a>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-3xl text-sapta-blue focus:outline-none transition-transform duration-300">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
+    <div id="mobile-menu" class="fixed inset-0 bg-white/90 backdrop-blur-2xl z-[90] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 transform -translate-y-8">
+        <div class="flex flex-col items-center gap-8 font-black text-3xl uppercase tracking-widest text-slate-800 text-center w-full px-6">
+            <a href="index.html#home" class="mobile-link hover:text-sapta-blue transition-colors w-full py-4 border-b border-slate-200/50">Beranda</a>
+            <a href="produk.html" class="mobile-link hover:text-sapta-blue transition-colors w-full py-4 border-b border-slate-200/50">Produk</a>
+            <a href="index.html#filosofi" class="mobile-link hover:text-sapta-blue transition-colors w-full py-4 border-b border-slate-200/50">Filosofi</a>
+            <a href="index.html#struktur" class="mobile-link hover:text-sapta-blue transition-colors w-full py-4 border-b border-slate-200/50">Struktur</a>
+            <a href="#contact" class="mt-8 px-12 py-5 bg-sapta-blue text-white rounded-[2rem] text-sm shadow-2xl mobile-link flex items-center gap-3">
+                Hubungi Kami <i class="fas fa-paper-plane"></i>
+            </a>
+        </div>
+    </div>
 
     <main class="container mx-auto px-6 md:px-16 pt-48 pb-20">
         
@@ -504,6 +534,36 @@ footer {
     <script>
         AOS.init({ duration: 1200, once: false, mirror: true });
         VanillaTilt.init(document.querySelectorAll(".bento-card"), { max: 5, speed: 400, glare: true, "max-glare": 0.1 });
+        // --- SCRIPT MOBILE MENU ANIMATION ---
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+const mobileIcon = mobileBtn.querySelector('i');
+
+// Fungsi saat tombol hamburger diklik
+mobileBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('menu-active');
+    mobileBtn.classList.toggle('btn-active');
+
+    // Ubah ikon dari garis 3 ke X
+    if (mobileMenu.classList.contains('menu-active')) {
+        mobileIcon.classList.remove('fa-bars');
+        mobileIcon.classList.add('fa-times');
+    } else {
+        mobileIcon.classList.remove('fa-times');
+        mobileIcon.classList.add('fa-bars');
+    }
+});
+
+// Fungsi untuk menutup menu otomatis jika salah satu link diklik
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('menu-active');
+        mobileBtn.classList.remove('btn-active');
+        mobileIcon.classList.remove('fa-times');
+        mobileIcon.classList.add('fa-bars');
+    });
+});
     </script>
 </body>
 </html>
