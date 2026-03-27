@@ -41,7 +41,38 @@
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+/* =========================================
+   TAMBAHAN CSS RESPONSIVE (MOBILE FIX)
+   ========================================= */
+   @media (max-width: 768px) {
+    /* Mengecilkan ukuran angka besar di card struktur agar tidak keluar batas */
+    .exec-number {
+        font-size: 5rem !important; 
+    }
+    
+    /* Memperbaiki ukuran teks berjalan (TypeIt) di HP */
+    h1 {
+        font-size: 3.5rem !important;
+        line-height: 1 !important;
+    }
 
+    /* Mengatur ulang posisi background blur agar tidak membuat scroll horizontal */
+    .blur-3xl, .blur-[100px], .blur-[120px] {
+        max-width: 100vw;
+        overflow: hidden;
+    }
+
+    /* Sesuaikan ukuran tombol navbar di HP */
+    .fixed-nav a.group {
+        padding: 10px 20px !important;
+        font-size: 10px !important;
+    }
+    
+    /* Kecilkan logo di navbar saat versi mobile */
+    .fixed-nav img {
+        height: 2.5rem !important;
+    }
+}
 /* Produk Card Hover */
 .product-card {
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
@@ -262,7 +293,21 @@
     transform: translateY(-2px);
     display: inline-block;
 }
+/* =========================================
+   ANIMASI MOBILE MENU
+   ========================================= */
+/* Class yang ditambahkan via JavaScript saat menu terbuka */
+#mobile-menu.menu-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
 
+/* Efek tombol strip 3 saat diklik berubah jadi 'X' */
+#mobile-menu-btn.btn-active {
+    transform: rotate(90deg);
+    color: #ef4444; /* Berubah jadi merah (close) */
+}
         /* Footer Neon Glow */
         .footer-glow {
             position: relative;
@@ -304,21 +349,36 @@
             </div>
         </a>
         
-        <div class="flex items-center gap-16">
+        <div class="flex items-center gap-6 lg:gap-16">
             <div class="hidden lg:flex gap-12 font-black text-[13px] uppercase tracking-widest text-slate-500">
                 <a href="#home" class="nav-link-custom hover:text-sapta-blue nav-active">Beranda</a>
                 <a href="produk.html" class="nav-link-custom ">Produk</a>
                 <a href="#filosofi" class="nav-link-custom hover:text-sapta-blue">Filosofi</a>
                 <a href="#struktur" class="nav-link-custom hover:text-sapta-blue">Struktur</a>
             </div>
-            <a href="#contact" class="group relative inline-flex items-center justify-center px-10 py-4 font-black text-[12px] uppercase tracking-widest text-white transition-all bg-sapta-blue rounded-2xl hover:bg-blue-800 shadow-xl overflow-hidden">
+            
+            <a href="#contact" class="hidden lg:inline-flex group relative items-center justify-center px-10 py-4 font-black text-[12px] uppercase tracking-widest text-white transition-all bg-sapta-blue rounded-2xl hover:bg-blue-800 shadow-xl overflow-hidden">
                 <span class="relative z-10 flex items-center gap-2">Hubungi Kami <i class="fas fa-arrow-right animate-pulse"></i></span>
                 <div class="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             </a>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-3xl text-sapta-blue focus:outline-none transition-transform duration-300">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
-
-    <section id="home" class="min-h-screen flex items-center justify-center relative pt-48 pb-24 grid-bg overflow-hidden">
+    <div id="mobile-menu" class="fixed inset-0 bg-white/90 backdrop-blur-2xl z-[90] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 transform -translate-y-8">
+        <div class="flex flex-col items-center gap-8 font-black text-3xl uppercase tracking-widest text-slate-800 text-center w-full px-6">
+            <a href="#home" class="mobile-link hover:text-sapta-blue transition-colors w-full py-4 border-b border-slate-200/50">Beranda</a>
+            <a href="produk.html" class="mobile-link hover:text-sapta-blue transition-colors w-full py-4 border-b border-slate-200/50">Produk</a>
+            <a href="#filosofi" class="mobile-link hover:text-sapta-blue transition-colors w-full py-4 border-b border-slate-200/50">Filosofi</a>
+            <a href="#struktur" class="mobile-link hover:text-sapta-blue transition-colors w-full py-4 border-b border-slate-200/50">Struktur</a>
+            <a href="#contact" class="mt-8 px-12 py-5 bg-sapta-blue text-white rounded-[2rem] text-sm shadow-2xl mobile-link flex items-center gap-3">
+                Hubungi Kami <i class="fas fa-paper-plane"></i>
+            </a>
+        </div>
+    </div>
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-32 pb-16 md:pt-48 md:pb-24 grid-bg overflow-hidden">
     <div class="absolute -top-24 -left-24 w-96 h-96 bg-sapta-blue/5 rounded-full blur-3xl"></div>
     <div class="absolute top-1/2 -right-24 w-[500px] h-[500px] bg-sapta-green/5 rounded-full blur-[100px]"></div>
 
@@ -353,8 +413,8 @@
             </div>
 
             <div class="lg:w-1/2 relative" data-aos="zoom-in" data-aos-delay="300">
-                <div class="hero-image-frame rounded-[4rem] overflow-hidden">
-                    <img src="logo.jpeg" alt="Identity" class="w-full h-[500px] object-cover">
+                <div class="hero-image-frame rounded-[3rem] md:rounded-[4rem] overflow-hidden">
+                    <img src="logo.jpeg" alt="Identity" class="w-full h-80 md:h-[500px] object-cover">
                 </div>
 
                 <div class="absolute -top-10 -right-10 bg-white p-8 rounded-[2.5rem] shadow-2xl border border-slate-50 hidden md:block animate-bounce" style="animation-duration: 5s;">
@@ -367,7 +427,7 @@
     </div>
 </section>
 
-    <section id="filosofi" class="py-56 bg-white relative overflow-hidden">
+    <section id="filosofi" class="py-24 md:py-56 bg-white relative overflow-hidden">
     <div class="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#1a56a5 1px, transparent 1px); background-size: 40px 40px;"></div>
 
     <div class="container mx-auto px-6 relative z-10">
@@ -407,7 +467,7 @@
     </div>
 </section>
 
-<section id="struktur" class="py-48 bg-slate-50 relative overflow-hidden">
+<section id="struktur" class="py-24 md:py-48 bg-slate-50 relative overflow-hidden">
     <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-sapta-blue/5 blur-[120px] rounded-full"></div>
     <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-sapta-green/5 blur-[120px] rounded-full"></div>
 
@@ -524,7 +584,7 @@
     </div>
 </section>
 
-    <footer id="contact" class="footer-glow pt-40 pb-16">
+<footer id="contact" class="footer-glow pt-24 pb-12 md:pt-40 md:pb-16">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-4 gap-24 mb-32">
                 <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
@@ -600,16 +660,31 @@ AOS.init({
             scale: 1.05
         });
 
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('main-nav');
-            if (window.scrollY > 100) {
-                nav.style.padding = '15px 60px';
-                nav.style.boxShadow = '0 20px 80px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.padding = '24px 64px';
-                nav.style.boxShadow = 'none';
-            }
-        });
+        // Script Navbar Scroll Responsif
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('main-nav');
+    const isMobile = window.innerWidth < 768; // Deteksi layar HP
+
+    if (window.scrollY > 50) {
+        // Jika di-scroll ke bawah
+        if(isMobile) {
+            nav.style.padding = '10px 24px'; // Padding kecil untuk HP
+        } else {
+            nav.style.padding = '15px 60px'; // Padding normal untuk PC
+        }
+        nav.style.boxShadow = '0 20px 80px rgba(0,0,0,0.1)';
+        nav.style.background = 'rgba(255, 255, 255, 0.95)';
+    } else {
+        // Jika di paling atas
+        if(isMobile) {
+            nav.style.padding = '15px 32px'; // Padding awal HP
+        } else {
+            nav.style.padding = '24px 64px'; // Padding awal PC
+        }
+        nav.style.boxShadow = 'none';
+        nav.style.background = 'rgba(255, 255, 255, 0.8)';
+    }
+});
         // Script untuk mendeteksi posisi scroll dan mengubah menu aktif
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-link-custom");
@@ -628,6 +703,36 @@ window.addEventListener("scroll", () => {
         if (link.getAttribute("href").includes(current)) {
             link.classList.add("nav-active");
         }
+    });
+});
+// --- SCRIPT MOBILE MENU ANIMATION ---
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+const mobileIcon = mobileBtn.querySelector('i');
+
+// Fungsi saat tombol hamburger diklik
+mobileBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('menu-active');
+    mobileBtn.classList.toggle('btn-active');
+
+    // Ubah ikon dari garis 3 ke X
+    if (mobileMenu.classList.contains('menu-active')) {
+        mobileIcon.classList.remove('fa-bars');
+        mobileIcon.classList.add('fa-times');
+    } else {
+        mobileIcon.classList.remove('fa-times');
+        mobileIcon.classList.add('fa-bars');
+    }
+});
+
+// Fungsi untuk menutup menu otomatis jika salah satu link diklik
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('menu-active');
+        mobileBtn.classList.remove('btn-active');
+        mobileIcon.classList.remove('fa-times');
+        mobileIcon.classList.add('fa-bars');
     });
 });
     </script>
