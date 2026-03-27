@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id" style="overflow-x: hidden;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk & Layanan | Sapta Nusantara Teknologi</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sapta-blue': '#1a56a5',
+                        'sapta-green': '#28a745',
+                    },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background: #ffffff; 
+            overflow-x: hidden; 
+            animation: fadeInPage 0.8s ease-in-out;
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .grid-bg-decor {
+            background-image: radial-gradient(rgba(26, 86, 165, 0.05) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+        }
+
+        .fixed-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid #1a56a5;
+        }
+
+        .nav-link-custom { position: relative; transition: color 0.3s; }
+        .nav-link-custom::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -5px; left: 0; background: #28a745; transition: width 0.3s;
+        }
+        /* Update CSS untuk nav-active agar lebih rapi */
+.nav-link-custom.nav-active {
+    color: #1a56a5;
+    font-weight: 800;
+}
+
+.nav-link-custom.nav-active::after {
+    width: 100%;
+    background: #28a745;
+    height: 3px; /* Membuat garis sedikit lebih tegas */
+    bottom: -8px; /* Memberi jarak agar tidak menempel ke teks */
+}
+
+/* Tambahan Hover yang lebih smooth */
+.nav-link-custom:hover {
+    color: #1a56a5;
+    transform: translateY(-2px);
+    display: inline-block;
+}
+
+        /* Bento Card Styles */
+        .bento-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e2e8f0;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-10px);
+            border-color: #1a56a5;
+            box-shadow: 0 40px 70px rgba(26, 86, 165, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #1a56a5, #28a745, #1a56a5);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+
+        /* Footer Ultra Ramping */
+footer { 
+    border-top: 2px solid #1a56a5; 
+    background: #ffffff;
+    padding: 2rem 0 !important; /* Memaksa padding tetap kecil */
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+    </style>
+</head>
+<body class="text-slate-900 antialiased grid-bg-decor">
+
+    <nav class="fixed top-0 w-full z-[100] fixed-nav px-6 md:px-16 py-4 md:py-6 flex items-center justify-between shadow-2xl">
+        <a href="index.html" class="flex items-center gap-3 md:gap-5 group">
+            <img src="assets/logo.jpeg" alt="Sapta Logo" class="h-10 md:h-14 w-auto rounded-xl shadow-lg">
+            <p class="font-black text-sm md:text-2xl leading-none text-sapta-blue uppercase">Sapta Nusantara</p>
+        </a>
+        
+        <div class="flex items-center gap-6 md:gap-12">
+            <div class="hidden lg:flex gap-10 font-black text-[13px] uppercase tracking-widest text-slate-500">
+                <a href="index.html#home" class="nav-link-custom ">Beranda</a>
+                <a href="produk.html" class="nav-link-custom nav-active">Produk</a>
+                <a href="index.html#filosofi" class="nav-link-custom">Filosofi</a>
+                <a href="index.html#struktur" class="nav-link-custom">Struktur</a>
+            </div>
+            <a href="index.html#contact" class="px-5 md:px-10 py-3 bg-sapta-blue text-white rounded-xl font-black text-[10px] md:text-[12px] uppercase tracking-widest shadow-lg">
+                Hubungi Kami
+            </a>
+        </div>
+    </nav>
+
+    <header class="pt-48 pb-20 text-center">
+        <div class="container mx-auto px-6" data-aos="zoom-out">
+            <span class="inline-block bg-sapta-green/10 text-sapta-green font-black text-[10px] uppercase tracking-[0.4em] px-6 py-2 rounded-full mb-6">Innovative Portfolio</span>
+            <h1 class="text-5xl md:text-8xl font-[900] tracking-tighter text-slate-900 mb-8">
+                Produk <span class="gradient-text">& Solusi</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed font-medium">
+                Karya nyata tim kami dalam menciptakan ekosistem digital yang adaptif, aman, dan berkelanjutan bagi mitra bisnis kami.
+            </p>
+        </div>
+    </header>
+
+    <div class="product-card group p-8 rounded-[3rem] bg-white border border-slate-100 shadow-xl overflow-hidden relative" data-aos="fade-up">
+        <div class="flex flex-col md:flex-row gap-10">
+            <div class="md:w-1/3 relative">
+                <div class="aspect-[3/4] rounded-[2rem] overflow-hidden bg-slate-100 border-4 border-white shadow-lg">
+                    <img src="assets/banyu-digital-mockup.png" alt="Banyu Digital" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="absolute -bottom-4 -right-4 bg-sapta-green text-white px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest shadow-lg">
+                    Live Project
+                </div>
+            </div>
+    
+            <div class="md:w-2/3 space-y-6">
+                <div class="inline-flex items-center gap-2 text-sapta-blue font-black text-xs uppercase tracking-[0.3em]">
+                    <i class="fas fa-droplet"></i> Smart Utility Solution
+                </div>
+                <h3 class="text-4xl font-[900] text-slate-900 tracking-tight">Banyu Digital</h3>
+                <p class="text-slate-500 text-lg leading-relaxed font-medium">
+                    Sistem informasi pelayanan pelanggan terintegrasi yang dirancang khusus untuk digitalisasi layanan Perumdam Tirta Dharma Ayu. Memudahkan interaksi antara penyedia jasa dan pelanggan secara real-time.
+                </p>
+    
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                    <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <i class="fas fa-headset text-sapta-green"></i>
+                        <span class="font-bold text-sm text-slate-700">Pengaduan & Chat Admin</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <i class="fas fa-robot text-sapta-green"></i>
+                        <span class="font-bold text-sm text-slate-700">Chatbot AI Assistance</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <i class="fas fa-gauge-high text-sapta-green"></i>
+                        <span class="font-bold text-sm text-slate-700">Baca Meter Mandiri</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <i class="fas fa-wallet text-sapta-green"></i>
+                        <span class="font-bold text-sm text-slate-700">Integrasi Pembayaran Digital</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container mx-auto px-6">
+            <div class="footer-container">
+                
+                <div class="flex items-center gap-4">
+                    <img src="assets/logo.jpeg" alt="Logo" class="h-8 md:h-10 rounded-lg shadow-sm">
+                    <div class="border-l-2 border-slate-100 pl-4">
+                        <h2 class="text-sm md:text-base font-black tracking-tighter text-slate-900 uppercase leading-none">PT SAPTA NUSANTARA TEKNOLOGI</h2>
+                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1">Innovative Digital Ecosystem</p>
+                    </div>
+                </div>
+    
+                <div class="hidden lg:block text-center">
+                    <p class="text-[10px] font-black text-slate-300 uppercase tracking-[0.4em]">
+                        &copy; 2026 OFFICIAL PROFILE
+                    </p>
+                </div>
+    
+                <div class="flex items-center gap-3">
+                    <a href="mailto:corporate@saptanantara.id" class="w-8 h-8 bg-slate-50 text-sapta-blue rounded-lg flex items-center justify-center hover:bg-sapta-blue hover:text-white transition-all border border-slate-100 shadow-sm" title="Email Us">
+                        <i class="fas fa-envelope text-xs"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 bg-slate-50 text-sapta-blue rounded-lg flex items-center justify-center hover:bg-sapta-blue hover:text-white transition-all border border-slate-100 shadow-sm">
+                        <i class="fab fa-linkedin-in text-xs"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 bg-slate-50 text-sapta-blue rounded-lg flex items-center justify-center hover:bg-sapta-blue hover:text-white transition-all border border-slate-100 shadow-sm">
+                        <i class="fab fa-instagram text-xs"></i>
+                    </a>
+                </div>
+    
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: false, mirror: true });
+        VanillaTilt.init(document.querySelectorAll(".bento-card"), { max: 5, speed: 400, glare: true, "max-glare": 0.1 });
+    </script>
+</body>
+</html>
