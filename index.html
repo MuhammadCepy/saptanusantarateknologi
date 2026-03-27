@@ -35,6 +35,25 @@
     width: 100%; 
     margin: 0; 
     padding: 0; 
+    animation: fadeInPage 0.8s ease-in-out;
+}
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Produk Card Hover */
+.product-card {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(26, 86, 165, 0.1);
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+    border-color: #1a56a5;
+    box-shadow: 0 40px 80px rgba(26, 86, 165, 0.08);
 }
 /* Styling Executive Board - Visible Light Version */
 .exec-card {
@@ -227,9 +246,22 @@
             background: linear-gradient(90deg, #1a56a5, #28a745);
             transition: width 0.3s;
         }
-        .nav-link-custom:hover::after {
-            width: 100%;
-        }
+        .nav-link-custom.nav-active {
+    color: #1a56a5;
+    font-weight: 800;
+}
+
+.nav-link-custom.nav-active::after {
+    width: 100%; /* Garis bawah penuh untuk halaman aktif */
+    background: #28a745; 
+}
+
+/* Tambahan Hover yang lebih smooth */
+.nav-link-custom:hover {
+    color: #1a56a5;
+    transform: translateY(-2px);
+    display: inline-block;
+}
 
         /* Footer Neon Glow */
         .footer-glow {
@@ -265,7 +297,7 @@
         <a href="#" class="flex items-center gap-5 group">
             <div class="relative">
                 <div class="absolute -inset-1 bg-gradient-to-r from-sapta-blue to-sapta-green rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000"></div>
-                <img src="logo.jpeg" alt="Sapta Logo" class="relative h-14 w-auto rounded-xl shadow-lg logo-float">
+                <img src="assets/logo.jpeg" alt="Sapta Logo" class="relative h-14 w-auto rounded-xl shadow-lg logo-float">
             </div>
             <div>
                 <p class="font-black text-2xl leading-none text-sapta-blue uppercase">Sapta Nusantara Teknologi</p>
@@ -274,7 +306,8 @@
         
         <div class="flex items-center gap-16">
             <div class="hidden lg:flex gap-12 font-black text-[13px] uppercase tracking-widest text-slate-500">
-                <a href="#home" class="nav-link-custom hover:text-sapta-blue">Beranda</a>
+                <a href="#home" class="nav-link-custom hover:text-sapta-blue nav-active">Beranda</a>
+                <a href="produk.html" class="nav-link-custom ">Produk</a>
                 <a href="#filosofi" class="nav-link-custom hover:text-sapta-blue">Filosofi</a>
                 <a href="#struktur" class="nav-link-custom hover:text-sapta-blue">Struktur</a>
             </div>
@@ -321,7 +354,7 @@
 
             <div class="lg:w-1/2 relative" data-aos="zoom-in" data-aos-delay="300">
                 <div class="hero-image-frame rounded-[4rem] overflow-hidden">
-                    <img src="logo.jpeg" alt="Identity" class="w-full h-[500px] object-cover">
+                    <img src="assets/logo.jpeg" alt="Identity" class="w-full h-[500px] object-cover">
                 </div>
 
                 <div class="absolute -top-10 -right-10 bg-white p-8 rounded-[2.5rem] shadow-2xl border border-slate-50 hidden md:block animate-bounce" style="animation-duration: 5s;">
@@ -496,7 +529,7 @@
             <div class="grid lg:grid-cols-4 gap-24 mb-32">
                 <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
                     <div class="flex items-center gap-6">
-                        <img src="logo.jpeg" alt="Logo" class="h-20 rounded-2xl shadow-2xl">
+                        <img src="assets/logo.jpeg" alt="Logo" class="h-20 rounded-2xl shadow-2xl">
                         <span class="font-black text-4xl tracking-tighter text-slate-900 uppercase">PT SAPTA NUSANTARA TEKNOLOGI</span>
                     </div>
                     <p class="text-2xl text-slate-500 leading-relaxed max-w-2xl font-medium">
@@ -577,6 +610,26 @@ AOS.init({
                 nav.style.boxShadow = 'none';
             }
         });
+        // Script untuk mendeteksi posisi scroll dan mengubah menu aktif
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link-custom");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 150) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach((link) => {
+        link.classList.remove("nav-active");
+        if (link.getAttribute("href").includes(current)) {
+            link.classList.add("nav-active");
+        }
+    });
+});
     </script>
 </body>
 </html>
