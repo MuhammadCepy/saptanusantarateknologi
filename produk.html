@@ -1,35 +1,30 @@
 <!DOCTYPE html>
 <html lang="id" style="overflow-x: hidden;">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sapta Nusantara Teknologi | Official Premium Profile</title>
-        
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk & Layanan | Sapta Nusantara Teknologi</title>
     
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" integrity="sha256-GqiEX9Bb7i8vzBtzJqA1FfaFAzXpXWbO08K81oGv+to=" crossorigin="anonymous">
-        
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js" integrity="sha512-K9tDZvc8nQXR1tzfz7k500G/x12x3R282A7kQkH/W1mZbmX7U1tI/jTqD/D4X4Z98hXh8S2Wb12O8w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            'sapta-blue': '#1a56a5',
-                            'sapta-green': '#28a745',
-                            'dark-deep': '#020617',
-                        },
-                        fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
-                    }
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sapta-blue': '#1a56a5',
+                        'sapta-green': '#28a745',
+                    },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
                 }
             }
-        </script>
+        }
+    </script>
 
     <style>
         body { 
@@ -366,17 +361,12 @@ footer {
         </a>
         <div class="flex items-center gap-6 lg:gap-16">
             <div class="hidden lg:flex gap-12 font-black text-[13px] uppercase tracking-widest text-slate-500">
-                <a href="index.html#home" class="nav-link-custom ">Beranda</a>
-                <a href="produk.html" class="nav-link-custom nav-active">Produk</a>
-                <a href="index.html#filosofi" class="nav-link-custom">Filosofi</a>
-                <a href="index.html#struktur" class="nav-link-custom">Struktur</a>
+                <a href="#home" class="nav-link-custom hover:text-sapta-blue nav-active">Beranda</a>
+                <a href="produk.html" class="nav-link-custom ">Produk</a>
+                <a href="#filosofi" class="nav-link-custom hover:text-sapta-blue">Filosofi</a>
+                <a href="#struktur" class="nav-link-custom hover:text-sapta-blue">Struktur</a>
             </div>
             
-            <!-- <a href="#contact" class="hidden lg:inline-flex group relative items-center justify-center px-10 py-4 font-black text-[12px] uppercase tracking-widest text-white transition-all bg-sapta-blue rounded-2xl hover:bg-blue-800 shadow-xl overflow-hidden">
-                <span class="relative z-10 flex items-center gap-2">Hubungi Kami <i class="fas fa-arrow-right animate-pulse"></i></span>
-                <div class="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            </a> -->
-
             <button id="mobile-menu-btn" class="lg:hidden text-3xl text-sapta-blue focus:outline-none transition-transform duration-300">
                 <i class="fas fa-bars"></i>
             </button>
@@ -388,9 +378,9 @@ footer {
             <a href="produk.html" class="mobile-link hover:text-sapta-blue transition-colors w-full py-4 border-b border-slate-200/50">Produk</a>
             <a href="index.html#filosofi" class="mobile-link hover:text-sapta-blue transition-colors w-full py-4 border-b border-slate-200/50">Filosofi</a>
             <a href="index.html#struktur" class="mobile-link hover:text-sapta-blue transition-colors w-full py-4 border-b border-slate-200/50">Struktur</a>
-            <a href="#contact" class="mt-8 px-12 py-5 bg-sapta-blue text-white rounded-[2rem] text-sm shadow-2xl mobile-link flex items-center gap-3">
+            <!-- <a href="#contact" class="mt-8 px-12 py-5 bg-sapta-blue text-white rounded-[2rem] text-sm shadow-2xl mobile-link flex items-center gap-3">
                 Hubungi Kami <i class="fas fa-paper-plane"></i>
-            </a>
+            </a> -->
         </div>
     </div>
 
@@ -578,7 +568,6 @@ mobileLinks.forEach(link => {
         mobileIcon.classList.add('fa-bars');
     });
 });
-
     </script>
 </body>
 </html>
