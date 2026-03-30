@@ -529,7 +529,7 @@ footer {
                 </div>
     
                 <div class="flex items-center gap-3">
-                    <a href="javascript:void(0)" id="secure-icon" class="w-8 h-8 bg-slate-50 text-sapta-blue rounded-lg flex items-center justify-center hover:bg-sapta-blue hover:text-white transition-all border border-slate-100 shadow-sm" title="Email Us">
+                    <a href="mailto:corporate@saptanantara.id" class="w-8 h-8 bg-slate-50 text-sapta-blue rounded-lg flex items-center justify-center hover:bg-sapta-blue hover:text-white transition-all border border-slate-100 shadow-sm" title="Email Us">
                         <i class="fas fa-envelope text-xs"></i>
                     </a>
                     <a href="#" class="w-8 h-8 bg-slate-50 text-sapta-blue rounded-lg flex items-center justify-center hover:bg-sapta-blue hover:text-white transition-all border border-slate-100 shadow-sm">
@@ -578,15 +578,7 @@ mobileLinks.forEach(link => {
         mobileIcon.classList.add('fa-bars');
     });
 });
-const emailBtn = document.getElementById('secure-email');
-        if(emailBtn) {
-            emailBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const user = 'muhcepy';
-                const domain = 'gmail.com';
-                window.location.href = 'mailto:' + user + '@' + domain;
-            });
-        }
+
     </script>
 </body>
 </html>
