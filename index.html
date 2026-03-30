@@ -624,8 +624,8 @@
                     <div class="space-y-8">
                     <div class="bg-slate-50 p-6 md:p-8 rounded-[2rem] border-2 border-slate-100 group hover:border-sapta-blue transition-all w-fit min-w-full lg:min-w-0">
                         <p class="text-[11px] font-black text-slate-400 uppercase mb-3 tracking-widest">Inquiry Email</p>
-                        <a href="javascript:void(0)" id="secure-email" class="text-lg md:text-xl font-black text-slate-900 hover:text-sapta-blue transition break-all block" title="Klik untuk mengirim email">
-                            muhcepy [at] gmail.com
+                        <a href="mailto:corporate@saptanantara.id" class="text-lg md:text-xl font-black text-slate-900 hover:text-sapta-blue transition break-all block">
+                            corporate@saptanantara.id
                         </a>
                     </div>
                         <div class="flex items-center gap-4 text-slate-900 font-black text-lg">
@@ -744,15 +744,6 @@ mobileLinks.forEach(link => {
         mobileIcon.classList.add('fa-bars');
     });
 });
-const emailBtn = document.getElementById('secure-email');
-        if(emailBtn) {
-            emailBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const user = 'muhcepy';
-                const domain = 'gmail.com';
-                window.location.href = 'mailto:' + user + '@' + domain;
-            });
-        }
     </script>
 </body>
 </html>
