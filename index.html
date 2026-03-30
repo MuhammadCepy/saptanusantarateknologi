@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="id" style="overflow-x: hidden;">
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sapta Nusantara Teknologi | Official Premium Profile</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sapta Nusantara Teknologi | Official Premium Profile</title>
+        
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:;">
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" integrity="sha256-GqiEX9Bb7i8vzBtzJqA1FfaFAzXpXWbO08K81oGv+to=" crossorigin="anonymous">
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js" integrity="sha512-K9tDZvc8nQXR1tzfz7k500G/x12x3R282A7kQkH/W1mZbmX7U1tI/jTqD/D4X4Z98hXh8S2Wb12O8w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'sapta-blue': '#1a56a5',
-                        'sapta-green': '#28a745',
-                        'dark-deep': '#020617',
-                    },
-                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            'sapta-blue': '#1a56a5',
+                            'sapta-green': '#28a745',
+                            'dark-deep': '#020617',
+                        },
+                        fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    }
                 }
             }
-        }
-    </script>
+        </script>
 
     <style>
         body { 
@@ -342,7 +345,7 @@
         <a href="#" class="flex items-center gap-3 md:gap-5 group">
             
             <div class="flex-shrink-0">
-                <img src="logo.png" alt="Sapta Logo" class="h-10 md:h-14 w-auto object-contain logo-float">
+                <img src="assets/logo.png" alt="Sapta Logo" class="h-10 md:h-14 w-auto object-contain logo-float">
             </div>
             
             <div>
@@ -419,7 +422,7 @@
             <div class="lg:w-1/2 relative" data-aos="zoom-in" data-aos-delay="300">
                 <div class="hero-image-frame rounded-[3rem] md:rounded-[4rem] overflow-hidden bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center">
                     
-                    <img src="logo.png" alt="Identity" class="w-full h-96 md:h-[550px] object-contain p-8 md:p-12 hover:scale-105 transition-transform duration-700">
+                    <img src="assets/logo.png" alt="Identity" class="w-full h-96 md:h-[550px] object-contain p-8 md:p-12 hover:scale-105 transition-transform duration-700">
                     
                 </div>
 
@@ -595,7 +598,7 @@
             <div class="grid lg:grid-cols-4 gap-24 mb-32">
                 <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
                     <div class="flex items-center gap-6">
-                        <img src="logo.png" alt="Logo" class="h-20 rounded-2xl shadow-2xl">
+                        <img src="assets/logo.png" alt="Logo" class="h-20 rounded-2xl shadow-2xl">
                         <span class="font-black text-4xl tracking-tighter text-slate-900 uppercase">PT SAPTA NUSANTARA TEKNOLOGI</span>
                     </div>
                     <p class="text-2xl text-slate-500 leading-relaxed max-w-2xl font-medium">
@@ -621,8 +624,8 @@
                     <div class="space-y-8">
                     <div class="bg-slate-50 p-6 md:p-8 rounded-[2rem] border-2 border-slate-100 group hover:border-sapta-blue transition-all w-fit min-w-full lg:min-w-0">
                         <p class="text-[11px] font-black text-slate-400 uppercase mb-3 tracking-widest">Inquiry Email</p>
-                        <a href="mailto:corporate@saptanantara.id" class="text-lg md:text-xl font-black text-slate-900 hover:text-sapta-blue transition break-all block">
-                            corporate@saptanantara.id
+                        <a href="javascript:void(0)" id="secure-email" class="text-lg md:text-xl font-black text-slate-900 hover:text-sapta-blue transition break-all block" title="Klik untuk mengirim email">
+                            muhcepy [at] gmail.com
                         </a>
                     </div>
                         <div class="flex items-center gap-4 text-slate-900 font-black text-lg">
@@ -741,6 +744,15 @@ mobileLinks.forEach(link => {
         mobileIcon.classList.add('fa-bars');
     });
 });
+const emailBtn = document.getElementById('secure-email');
+        if(emailBtn) {
+            emailBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const user = 'muhcepy';
+                const domain = 'gmail.com';
+                window.location.href = 'mailto:' + user + '@' + domain;
+            });
+        }
     </script>
 </body>
 </html>
